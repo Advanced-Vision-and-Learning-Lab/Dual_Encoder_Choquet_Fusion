@@ -1,0 +1,28 @@
+lightning_logs/
+
+# Python caches & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+dual_env/
+
+datasets/DeepShip
+datasets/ShipsEar
+custom_weights/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Test outputs
+*.log
+
+# Hugging Face cache
+cache_for_HF/
+~/.cache/huggingface/
+
