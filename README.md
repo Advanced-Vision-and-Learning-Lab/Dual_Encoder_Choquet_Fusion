@@ -1,4 +1,4 @@
-# Parameter-efficient Waveform-Spectrogram Fusion via Choquet Integral for Underwater Acoustic Classification
+# Parameter-efficient Dual-encoder Architecture with Differentiable Choquet Integral Fusion for Underwater Acoustic Classification
 <p align="center">
   <img src="Figures/workflow.png" alt="Workflow Diagram">
 </p>
@@ -51,4 +51,16 @@ This source code is licensed under the license found in the [`LICENSE`](LICENSE)
 
 This product is Copyright (c) 2025 A. Mohammadi, A. Dine and J. Peeples. All rights reserved.
 
+## Citation
 
+If you use this work, please cite:
+
+### arXiv preprint
+
+```bibtex
+@article{mohammadi2026parameter,
+  title={Parameter-efficient Dual-encoder Architecture with Differentiable Choquet Integral Fusion for Underwater Acoustic Classification},
+  author={Mohammadi, Amirmohammad and Peeples, Joshua and Van Dine, Alexandra},
+  journal={arXiv preprint arXiv:2606.02341},
+  year={2026}
+}
