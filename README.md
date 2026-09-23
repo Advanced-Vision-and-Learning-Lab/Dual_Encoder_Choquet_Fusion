@@ -3,7 +3,7 @@
   <img src="Figures/workflow.png" alt="Workflow Diagram">
 </p>
 
-Amirmohammad Mohammadi, Alexandra Van Dine and Joshua Peeples
+Amirmohammad Mohammadi and Joshua Peeples
 
 
 ## Installation Prerequisites
@@ -49,7 +49,7 @@ Run [`demo.py`](demo.py) in Python IDE or command line to train the models.
 
 This source code is licensed under the license found in the [`LICENSE`](LICENSE) file in the root directory of this source tree.
 
-This product is Copyright (c) 2025 A. Mohammadi, A. Dine and J. Peeples. All rights reserved.
+This product is Copyright (c) 2025 A. Mohammadi and J. Peeples. All rights reserved.
 
 ## Citation
 
