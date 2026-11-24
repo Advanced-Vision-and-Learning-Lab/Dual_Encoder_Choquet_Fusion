@@ -41,7 +41,7 @@ def collect_test_predictions(model, dataloader, device, encoder_mode="single"):
                 logits = torch.exp(out["logits"])  # log-probs → probs
             elif encoder_mode == "dual":
                 out = model(**batch_device)
-                logits = torch.exp(out["logits"])  # log-probs → probs
+                logits = out["logits"]
             else:
                 out = model(**batch_device)
                 logits = out.logits if hasattr(out, "logits") else out["logits"]

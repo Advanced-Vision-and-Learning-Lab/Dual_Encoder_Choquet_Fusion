@@ -382,8 +382,10 @@ class MultiEncoderAudioClassifierModule(L.LightningModule):
         ast_input_type: str = "logmel",
         mfcc_n_mfcc: int = 32,
         cqt_n_bins: int = 84,
+        init_rand: Optional[bool] = None,
     ):
         super().__init__()
+        init_rand = hpt_init_rand if init_rand is None else init_rand
         self.save_hyperparameters()
         self.fused_loss_weight = fused_loss_weight
         self._dataset = dataset
@@ -463,7 +465,7 @@ class MultiEncoderAudioClassifierModule(L.LightningModule):
             "train": [], "val": [],
             "train_wave": [], "train_tf": [], "train_fused": [],
         }
-        self._log_vars_history = [] # ADDED for tracking log variances
+        self._log_vars_history = []
         
         self.train_acc = MulticlassAccuracy(num_classes=num_classes, average="micro")
         self.val_f1 = MulticlassF1Score(num_classes=num_classes, average="macro")
@@ -779,7 +781,6 @@ class MultiEncoderAudioClassifierModule(L.LightningModule):
 
         if self.dual_branch_loss and hist["train_wave"]:
             # If homoscedastic, weights are applied dynamically during computation
-            # We just plot the raw recorded losses for visibility
             if self.loss_weight_mode == "homoscedastic":
                 ax.plot(epochs_t, hist["train_wave"], "-", color="#1f77b4", linewidth=2.0, label="Wave loss (raw)")
                 ax.plot(epochs_t, hist["train_tf"], "-", color="#ff7f0e", linewidth=2.0, label="TF loss (raw)")

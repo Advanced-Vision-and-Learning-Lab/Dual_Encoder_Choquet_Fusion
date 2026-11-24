@@ -225,6 +225,7 @@ class ShipsEarDataModule(L.LightningDataModule):
         mfcc_n_mels: int = 128,
         cqt_n_bins: int = 84,
         norm_type: str = "sample",
+        run_idx: int = 0,
     ) -> None:
         super().__init__()
         self.norm_type = norm_type
@@ -385,9 +386,10 @@ class ShipsEarDataModule(L.LightningDataModule):
                     seglen=self.segment_length_s, sr=self.sample_rate
                 )
         self.split_json_fp = THIS_DIR / split_json_name
+        self.run_idx = run_idx
         if self.k_shot_per_class > 0:
             self.kshot_json_fp = THIS_DIR / (
-                f"shipsear_kshot_k{self.k_shot_per_class}_{self.segment_length_s}s_{self.sample_rate}hz.json"
+                f"shipsear_kshot_k{self.k_shot_per_class}_{self.segment_length_s}s_{self.sample_rate}hz_run{self.run_idx}.json"
             )
         else:
             self.kshot_json_fp = None

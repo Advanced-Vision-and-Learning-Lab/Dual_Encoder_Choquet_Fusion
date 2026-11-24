@@ -1,5 +1,5 @@
 # src/model_module.py
-from typing import Dict
+from typing import Dict, Optional
 import inspect
 import torch
 import torch.nn as nn
@@ -181,8 +181,10 @@ class AudioClassifierModule(L.LightningModule):
         ast_input_type: str = "logmel",
         mfcc_n_mfcc: int = 32,
         cqt_n_bins: int = 84,
+        init_rand: Optional[bool] = None,
     ):
         super().__init__()
+        init_rand = hpt_init_rand if init_rand is None else init_rand
         self.save_hyperparameters()
         self._dataset = dataset
         self._backbone_model_type = None
@@ -389,7 +391,7 @@ class AudioClassifierModule(L.LightningModule):
                 num_bins=hpt_bins,
                 location=hpt_location,
                 shared=hpt_shared,
-                init_rand=hpt_init_rand,
+                init_rand=init_rand,
             )
             _freeze_classifier_layernorm(self.model)
             _unfreeze_last_classifier_linear(self.model)
